@@ -52,64 +52,14 @@ func IDLTE(id int) predicate.User {
 	return predicate.User(sql.FieldLTE(FieldID, id))
 }
 
-// Age applies equality check predicate on the "age" field. It's identical to AgeEQ.
-func Age(v int) predicate.User {
-	return predicate.User(sql.FieldEQ(FieldAge, v))
-}
-
 // Name applies equality check predicate on the "name" field. It's identical to NameEQ.
 func Name(v string) predicate.User {
 	return predicate.User(sql.FieldEQ(FieldName, v))
 }
 
-// AgeEQ applies the EQ predicate on the "age" field.
-func AgeEQ(v int) predicate.User {
-	return predicate.User(sql.FieldEQ(FieldAge, v))
-}
-
-// AgeNEQ applies the NEQ predicate on the "age" field.
-func AgeNEQ(v int) predicate.User {
-	return predicate.User(sql.FieldNEQ(FieldAge, v))
-}
-
-// AgeIn applies the In predicate on the "age" field.
-func AgeIn(vs ...int) predicate.User {
-	return predicate.User(sql.FieldIn(FieldAge, vs...))
-}
-
-// AgeNotIn applies the NotIn predicate on the "age" field.
-func AgeNotIn(vs ...int) predicate.User {
-	return predicate.User(sql.FieldNotIn(FieldAge, vs...))
-}
-
-// AgeGT applies the GT predicate on the "age" field.
-func AgeGT(v int) predicate.User {
-	return predicate.User(sql.FieldGT(FieldAge, v))
-}
-
-// AgeGTE applies the GTE predicate on the "age" field.
-func AgeGTE(v int) predicate.User {
-	return predicate.User(sql.FieldGTE(FieldAge, v))
-}
-
-// AgeLT applies the LT predicate on the "age" field.
-func AgeLT(v int) predicate.User {
-	return predicate.User(sql.FieldLT(FieldAge, v))
-}
-
-// AgeLTE applies the LTE predicate on the "age" field.
-func AgeLTE(v int) predicate.User {
-	return predicate.User(sql.FieldLTE(FieldAge, v))
-}
-
-// AgeIsNil applies the IsNil predicate on the "age" field.
-func AgeIsNil() predicate.User {
-	return predicate.User(sql.FieldIsNull(FieldAge))
-}
-
-// AgeNotNil applies the NotNil predicate on the "age" field.
-func AgeNotNil() predicate.User {
-	return predicate.User(sql.FieldNotNull(FieldAge))
+// Priority applies equality check predicate on the "priority" field. It's identical to PriorityEQ.
+func Priority(v int) predicate.User {
+	return predicate.User(sql.FieldEQ(FieldPriority, v))
 }
 
 // NameEQ applies the EQ predicate on the "name" field.
@@ -175,6 +125,56 @@ func NameEqualFold(v string) predicate.User {
 // NameContainsFold applies the ContainsFold predicate on the "name" field.
 func NameContainsFold(v string) predicate.User {
 	return predicate.User(sql.FieldContainsFold(FieldName, v))
+}
+
+// PriorityEQ applies the EQ predicate on the "priority" field.
+func PriorityEQ(v int) predicate.User {
+	return predicate.User(sql.FieldEQ(FieldPriority, v))
+}
+
+// PriorityNEQ applies the NEQ predicate on the "priority" field.
+func PriorityNEQ(v int) predicate.User {
+	return predicate.User(sql.FieldNEQ(FieldPriority, v))
+}
+
+// PriorityIn applies the In predicate on the "priority" field.
+func PriorityIn(vs ...int) predicate.User {
+	return predicate.User(sql.FieldIn(FieldPriority, vs...))
+}
+
+// PriorityNotIn applies the NotIn predicate on the "priority" field.
+func PriorityNotIn(vs ...int) predicate.User {
+	return predicate.User(sql.FieldNotIn(FieldPriority, vs...))
+}
+
+// PriorityGT applies the GT predicate on the "priority" field.
+func PriorityGT(v int) predicate.User {
+	return predicate.User(sql.FieldGT(FieldPriority, v))
+}
+
+// PriorityGTE applies the GTE predicate on the "priority" field.
+func PriorityGTE(v int) predicate.User {
+	return predicate.User(sql.FieldGTE(FieldPriority, v))
+}
+
+// PriorityLT applies the LT predicate on the "priority" field.
+func PriorityLT(v int) predicate.User {
+	return predicate.User(sql.FieldLT(FieldPriority, v))
+}
+
+// PriorityLTE applies the LTE predicate on the "priority" field.
+func PriorityLTE(v int) predicate.User {
+	return predicate.User(sql.FieldLTE(FieldPriority, v))
+}
+
+// PriorityIsNil applies the IsNil predicate on the "priority" field.
+func PriorityIsNil() predicate.User {
+	return predicate.User(sql.FieldIsNull(FieldPriority))
+}
+
+// PriorityNotNil applies the NotNil predicate on the "priority" field.
+func PriorityNotNil() predicate.User {
+	return predicate.User(sql.FieldNotNull(FieldPriority))
 }
 
 // And groups predicates with the AND operator between them.

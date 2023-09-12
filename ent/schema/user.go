@@ -1,7 +1,9 @@
 package schema
 
 import (
+	"entgo.io/contrib/entgql"
 	"entgo.io/ent"
+	"entgo.io/ent/schema"
 	"entgo.io/ent/schema/field"
 )
 
@@ -13,12 +15,19 @@ type User struct {
 // Fields of the User.
 func (User) Fields() []ent.Field {
 	return []ent.Field{
-		field.Int("age").Nillable().Optional(),
 		field.String("name"),
+
+		field.Int("priority").
+			Nillable().
+			Optional().
+			Annotations(entgql.OrderField("priority")),
 	}
 }
 
-// Edges of the User.
-func (User) Edges() []ent.Edge {
-	return nil
+func (User) Annotations() []schema.Annotation {
+	return []schema.Annotation{
+		entgql.QueryField(),
+		entgql.RelayConnection(),
+		entgql.MultiOrder(),
+	}
 }

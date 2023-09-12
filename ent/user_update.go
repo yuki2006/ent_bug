@@ -27,36 +27,36 @@ func (uu *UserUpdate) Where(ps ...predicate.User) *UserUpdate {
 	return uu
 }
 
-// SetAge sets the "age" field.
-func (uu *UserUpdate) SetAge(i int) *UserUpdate {
-	uu.mutation.ResetAge()
-	uu.mutation.SetAge(i)
+// SetName sets the "name" field.
+func (uu *UserUpdate) SetName(s string) *UserUpdate {
+	uu.mutation.SetName(s)
 	return uu
 }
 
-// SetNillableAge sets the "age" field if the given value is not nil.
-func (uu *UserUpdate) SetNillableAge(i *int) *UserUpdate {
+// SetPriority sets the "priority" field.
+func (uu *UserUpdate) SetPriority(i int) *UserUpdate {
+	uu.mutation.ResetPriority()
+	uu.mutation.SetPriority(i)
+	return uu
+}
+
+// SetNillablePriority sets the "priority" field if the given value is not nil.
+func (uu *UserUpdate) SetNillablePriority(i *int) *UserUpdate {
 	if i != nil {
-		uu.SetAge(*i)
+		uu.SetPriority(*i)
 	}
 	return uu
 }
 
-// AddAge adds i to the "age" field.
-func (uu *UserUpdate) AddAge(i int) *UserUpdate {
-	uu.mutation.AddAge(i)
+// AddPriority adds i to the "priority" field.
+func (uu *UserUpdate) AddPriority(i int) *UserUpdate {
+	uu.mutation.AddPriority(i)
 	return uu
 }
 
-// ClearAge clears the value of the "age" field.
-func (uu *UserUpdate) ClearAge() *UserUpdate {
-	uu.mutation.ClearAge()
-	return uu
-}
-
-// SetName sets the "name" field.
-func (uu *UserUpdate) SetName(s string) *UserUpdate {
-	uu.mutation.SetName(s)
+// ClearPriority clears the value of the "priority" field.
+func (uu *UserUpdate) ClearPriority() *UserUpdate {
+	uu.mutation.ClearPriority()
 	return uu
 }
 
@@ -101,17 +101,17 @@ func (uu *UserUpdate) sqlSave(ctx context.Context) (n int, err error) {
 			}
 		}
 	}
-	if value, ok := uu.mutation.Age(); ok {
-		_spec.SetField(user.FieldAge, field.TypeInt, value)
-	}
-	if value, ok := uu.mutation.AddedAge(); ok {
-		_spec.AddField(user.FieldAge, field.TypeInt, value)
-	}
-	if uu.mutation.AgeCleared() {
-		_spec.ClearField(user.FieldAge, field.TypeInt)
-	}
 	if value, ok := uu.mutation.Name(); ok {
 		_spec.SetField(user.FieldName, field.TypeString, value)
+	}
+	if value, ok := uu.mutation.Priority(); ok {
+		_spec.SetField(user.FieldPriority, field.TypeInt, value)
+	}
+	if value, ok := uu.mutation.AddedPriority(); ok {
+		_spec.AddField(user.FieldPriority, field.TypeInt, value)
+	}
+	if uu.mutation.PriorityCleared() {
+		_spec.ClearField(user.FieldPriority, field.TypeInt)
 	}
 	if n, err = sqlgraph.UpdateNodes(ctx, uu.driver, _spec); err != nil {
 		if _, ok := err.(*sqlgraph.NotFoundError); ok {
@@ -133,36 +133,36 @@ type UserUpdateOne struct {
 	mutation *UserMutation
 }
 
-// SetAge sets the "age" field.
-func (uuo *UserUpdateOne) SetAge(i int) *UserUpdateOne {
-	uuo.mutation.ResetAge()
-	uuo.mutation.SetAge(i)
+// SetName sets the "name" field.
+func (uuo *UserUpdateOne) SetName(s string) *UserUpdateOne {
+	uuo.mutation.SetName(s)
 	return uuo
 }
 
-// SetNillableAge sets the "age" field if the given value is not nil.
-func (uuo *UserUpdateOne) SetNillableAge(i *int) *UserUpdateOne {
+// SetPriority sets the "priority" field.
+func (uuo *UserUpdateOne) SetPriority(i int) *UserUpdateOne {
+	uuo.mutation.ResetPriority()
+	uuo.mutation.SetPriority(i)
+	return uuo
+}
+
+// SetNillablePriority sets the "priority" field if the given value is not nil.
+func (uuo *UserUpdateOne) SetNillablePriority(i *int) *UserUpdateOne {
 	if i != nil {
-		uuo.SetAge(*i)
+		uuo.SetPriority(*i)
 	}
 	return uuo
 }
 
-// AddAge adds i to the "age" field.
-func (uuo *UserUpdateOne) AddAge(i int) *UserUpdateOne {
-	uuo.mutation.AddAge(i)
+// AddPriority adds i to the "priority" field.
+func (uuo *UserUpdateOne) AddPriority(i int) *UserUpdateOne {
+	uuo.mutation.AddPriority(i)
 	return uuo
 }
 
-// ClearAge clears the value of the "age" field.
-func (uuo *UserUpdateOne) ClearAge() *UserUpdateOne {
-	uuo.mutation.ClearAge()
-	return uuo
-}
-
-// SetName sets the "name" field.
-func (uuo *UserUpdateOne) SetName(s string) *UserUpdateOne {
-	uuo.mutation.SetName(s)
+// ClearPriority clears the value of the "priority" field.
+func (uuo *UserUpdateOne) ClearPriority() *UserUpdateOne {
+	uuo.mutation.ClearPriority()
 	return uuo
 }
 
@@ -237,17 +237,17 @@ func (uuo *UserUpdateOne) sqlSave(ctx context.Context) (_node *User, err error) 
 			}
 		}
 	}
-	if value, ok := uuo.mutation.Age(); ok {
-		_spec.SetField(user.FieldAge, field.TypeInt, value)
-	}
-	if value, ok := uuo.mutation.AddedAge(); ok {
-		_spec.AddField(user.FieldAge, field.TypeInt, value)
-	}
-	if uuo.mutation.AgeCleared() {
-		_spec.ClearField(user.FieldAge, field.TypeInt)
-	}
 	if value, ok := uuo.mutation.Name(); ok {
 		_spec.SetField(user.FieldName, field.TypeString, value)
+	}
+	if value, ok := uuo.mutation.Priority(); ok {
+		_spec.SetField(user.FieldPriority, field.TypeInt, value)
+	}
+	if value, ok := uuo.mutation.AddedPriority(); ok {
+		_spec.AddField(user.FieldPriority, field.TypeInt, value)
+	}
+	if uuo.mutation.PriorityCleared() {
+		_spec.ClearField(user.FieldPriority, field.TypeInt)
 	}
 	_node = &User{config: uuo.config}
 	_spec.Assign = _node.assignValues
